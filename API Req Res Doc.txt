@@ -1,0 +1,89 @@
+1. Upload array of files, first save the file into the server folder then store file name into the database. All files uploading parallelly.
+url: http://localhost:9000/saveFiles
+req: {
+	"file": ["1.jpg", "2.jpg"] // get array of images files in request body
+}
+res: {
+    "success": 1,
+    "data": [
+        {
+            "_id": "5fdc86f7fd16d02f4a333fb5",
+            "imageName": "1.jpg",
+            "__v": 0
+        },
+        {
+            "_id": "5fdc86f7fd16d02f4a333fb6",
+            "imageName": "2.jpg",
+            "__v": 0
+        }
+    ]
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Generate a list of Reports
+url: http://localhost:9000/generateReport
+req: {
+	"nthHighest": 1 // to get the nth heighest price
+}
+res: {
+    "success": 1,
+    "data": {
+        "colorAndSizeWiseData": [
+            {
+                "_id": "5fdbd5a40387f41d3a6eb78e",
+                "productName": "productOne",
+                "price": 500,
+                "size": "10",
+                "color": "red",
+                "category": "Mens Fashion"
+            },
+            {
+                "_id": "5fdc672f1a9065099cb504ea",
+                "productName": "productFour",
+                "price": 1000,
+                "size": "20",
+                "color": "blue",
+                "category": "Womens Fashion"
+            },
+            {
+                "_id": "5fdc67981a9065099cb50509",
+                "productName": "productFive",
+                "price": 2000,
+                "size": "10",
+                "color": "red",
+                "category": "Womens Fashion"
+            },
+            {
+                "_id": "5fdc689b1a9065099cb50562",
+                "productName": "productEight",
+                "price": 1500,
+                "size": "10",
+                "color": "blue",
+                "category": "Electronics"
+            }
+        ],
+        "catWiseHighestPrice": [
+            {
+                "_id": "Electronics",
+                "price": 2500
+            },
+            {
+                "_id": "Womens Fashion",
+                "price": 2000
+            },
+            {
+                "_id": "Mens Fashion",
+                "price": 1000
+            }
+        ],
+        "highestPrice": [
+            {
+                "_id": "5fdc68cc1a9065099cb50577",
+                "productName": "productTen",
+                "price": 2500,
+                "size": "15",
+                "color": "red",
+                "category": "Electronics"
+            }
+        ]
+    }
+}
